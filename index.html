@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+setInterval(() => {
+console.log('Checked');
+var currentTime = new Date().getSeconds();
+if (document.body) {
+/*
+    if (0 <= currentTime && currentTime < 10) {
+        document.body.style.backgroundColor = "red";
+    }
+    else if (10 <= currentTime && currentTime < 20){
+        document.body.style.backgroundColor = "white";
+    }
+	else if (20 <= currentTime && currentTime < 30){
+        document.body.style.backgroundColor = "red";
+    }
+	else if (30 <= currentTime && currentTime < 40){
+        document.body.style.backgroundColor = "white";
+    }
+	else if (40 <= currentTime && currentTime < 50){
+        document.body.style.backgroundColor = "red";
+    }
+	else {
+        document.body.style.backgroundColor = "white";
+    }
+*/
+	if (currentTime % 2 == 0 ) {
+        document.body.style.backgroundColor = "#E0BBE4";
+    }
+	else{
+		document.body.style.backgroundColor = "#957DAD";
+	}
+}}, 1000)
+</script>
+</html>
