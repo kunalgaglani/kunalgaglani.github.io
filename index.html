@@ -6,6 +6,12 @@
 
 </body>
 <script type="text/javascript">
+var reloadFlag = true;
+if(reloadFlag){
+	window.setTimeout( function() {
+	  window.location.reload();  
+	}, 15000);
+}
 
 setInterval(() => {
 	console.log('Checked');
