@@ -6,18 +6,20 @@
 
 </body>
 <script type="text/javascript">
-var reloadFlag = true;
+var reloadFlag = false;
 var a = 0;
-if(reloadFlag && !localStorage.getItem("reload")){
+if(!localStorage.getItem("reload")){
 	window.setTimeout( function() {
 	  window.location.reload();
-	  localStorage.setItem("reload", true);
 	}, 15000);
 }
-if( !localStorage.getItem("reload") ){
+if( !localStorage.getItem("reload") && !reloadFlag ){
 	var img = document.createElement('img');
     img.src = 'logo_black_ring.png';
     document.getElementById('body').appendChild(img);
+}
+if( reloadFlag ){
+	localStorage.setItem("reload", true);
 }
 
 setInterval(()=>{
