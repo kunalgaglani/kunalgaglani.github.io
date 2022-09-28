@@ -10,14 +10,15 @@ var reloadFlag = false;
 var currentTime;
 var a = 0;
 if(!localStorage.getItem("reload")){
-	setInterval( () => {
+	setInterval( (currTime) => {
 		currentTime = new Date().getUTCSeconds();
+		if(currentTime % 15 == 0)
+		{
+			console.log(currentTime);
+			window.location.reload();
+		}
 	}, 10)
-	if(currentTime % 15 == 0)
-	{
-		console.log(currentTime);
-		window.location.reload();
-	}
+	
 	
 }
 if( !localStorage.getItem("reload") && !reloadFlag ){
