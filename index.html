@@ -2,47 +2,54 @@
 <head>
     <title></title>
 </head>
-<body>
+<body id='body'>
 
 </body>
 <script type="text/javascript">
-var reloadFlag = true;
-if(reloadFlag){
+var reloadFlag = false;
+var a = 0;
+if(reloadFlag && !localStorage.getItem("reload")){
 	window.setTimeout( function() {
-	  window.location.reload();  
+	  window.location.reload();
+	  localStorage.setItem("reload", true);
 	}, 15000);
 }
+if( !localStorage.getItem("reload") ){
+	var img = document.createElement('img');
+    img.src = 'logo_black_ring.png';
+    document.getElementById('body').appendChild(img);
+}
 
-setInterval(() => {
+setInterval(()=>{
+	 a += 1;
+	 localStorage.setItem("counter", a);
+	 console.log(a);
+}, 1000)
+
+if( localStorage.getItem("reload") ){
+	setInterval(() => {
 	console.log('Checked');
-	var currentTime = new Date().getUTCSeconds();
 	if (document.body) {
-		if (0 <= currentTime && currentTime < 10) {
+		if (0 <= a && a < 10) {
 			document.body.style.backgroundColor = "red";
 		}
-		else if (10 <= currentTime && currentTime < 20){
+		else if (10 <= a && a < 20){
 			document.body.style.backgroundColor = "blue";
 		}
-		else if (20 <= currentTime && currentTime < 30){
+		else if (20 <= a && a < 30){
 			document.body.style.backgroundColor = "white";
 		}
-		else if (30 <= currentTime && currentTime < 40){
+		else if (30 <= a && a < 40){
 			document.body.style.backgroundColor = "black";
 		}
-		else if (40 <= currentTime && currentTime < 50){
+		else if (40 <= a && a < 50){
 			document.body.style.backgroundColor = "green";
 		}
 		else {
 			document.body.style.backgroundColor = "yellow";
 		}
-		/*
-		if (currentTime % 10 == 0 ) {
-			document.body.style.backgroundColor = "#E0BBE4";
-		}
-		else{
-			document.body.style.backgroundColor = "#957DAD";
-		}
-		*/
 	}}, 10)
+
+}
 </script>
 </html>
