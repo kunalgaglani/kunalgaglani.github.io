@@ -7,11 +7,17 @@
 </body>
 <script type="text/javascript">
 var reloadFlag = false;
+var currentTime;
 var a = 0;
 if(!localStorage.getItem("reload")){
-	window.setTimeout( function() {
-	  window.location.reload();
-	}, 15000);
+	setInterval( () => {
+		currentTime = new Date().getUTCSeconds();
+	}, 10)
+	if(currentTime % 15 == 0)
+	{
+		window.location.reload();
+	}
+	
 }
 if( !localStorage.getItem("reload") && !reloadFlag ){
 	var img = document.createElement('img');
@@ -20,38 +26,39 @@ if( !localStorage.getItem("reload") && !reloadFlag ){
 }
 if( reloadFlag ){
 	localStorage.setItem("reload", true);
-}
-
-setInterval(()=>{
+	setInterval(()=>{
 	 a += 1;
 	 localStorage.setItem("counter", a);
 	 console.log(a);
-}, 1000)
+	}, 1000)
 
-if( localStorage.getItem("reload") ){
-	setInterval(() => {
-	console.log('Checked');
-	if (document.body) {
-		if (0 <= a && a < 10) {
-			document.body.style.backgroundColor = "red";
-		}
-		else if (10 <= a && a < 20){
-			document.body.style.backgroundColor = "blue";
-		}
-		else if (20 <= a && a < 30){
-			document.body.style.backgroundColor = "white";
-		}
-		else if (30 <= a && a < 40){
-			document.body.style.backgroundColor = "black";
-		}
-		else if (40 <= a && a < 50){
-			document.body.style.backgroundColor = "green";
-		}
-		else {
-			document.body.style.backgroundColor = "yellow";
-		}
-	}}, 10)
+	if( localStorage.getItem("reload") ){
+		setInterval(() => {
+		console.log('Checked');
+		if (document.body) {
+			if (0 <= a && a < 10) {
+				document.body.style.backgroundColor = "red";
+			}
+			else if (10 <= a && a < 20){
+				document.body.style.backgroundColor = "blue";
+			}
+			else if (20 <= a && a < 30){
+				document.body.style.backgroundColor = "white";
+			}
+			else if (30 <= a && a < 40){
+				document.body.style.backgroundColor = "black";
+			}
+			else if (40 <= a && a < 50){
+				document.body.style.backgroundColor = "green";
+			}
+			else {
+				document.body.style.backgroundColor = "yellow";
+			}
+		}}, 10)
 
+	}
 }
+
+
 </script>
 </html>
