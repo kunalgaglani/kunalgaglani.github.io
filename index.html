@@ -13,10 +13,19 @@
 			width: 40%;
 			height: 35%;
 		}
-		@media screen and (max-width: 780px) {
-		.logo {
-			height: 20%;
+		@media 
+		only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 700px),
+		only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 700px),
+		only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 700px),
+		only screen and (        min-device-pixel-ratio: 2)      and (min-width: 700px) {
+			.logo{
+				height: 20%;
+			}
 		}
+		@media only screen and (min-width: 1300px) {
+			.logo{
+				height: 40%;
+			}
 		}
 	</style>
 </head>
