@@ -4,7 +4,7 @@
 	<style>
 		.transitions {
 			animation-name: backgroundColorPalette;
-			animation-duration: 5s;
+			animation-duration: 10s;
 			animation-iteration-count: infinite;
 			animation-direction: alternate;
 			animation-timing-function: linear; 
@@ -12,19 +12,37 @@
 		}
 		@keyframes backgroundColorPalette {
 		0% {
-			background: #ee6055;
+			background: #a7c7e7;
 		}
-		25% {
-			background: #60d394;
+		10% {
+			background: #a8d3ce;
+		}
+		20% {
+			background: #a9d9c2;
+		}
+		30% {
+			background: #a9dfb5;
+		}
+		40% {
+			background: #aaeb9c;
 		}
 		50% {
 			background: #aaf683;
 		}
-		75% {
-			background: #ffd97d;
+		60% {
+			background: #aaeb9c;
+		}
+		70% {
+			background: #a9dfb5;
+		}
+		80% {
+			background: #a9d9c2;
+		}
+		90% {
+			background: #a8d3ce;
 		}
 		100% {
-			background: #ff9b85;
+			background: #a7c7e7;
 		}
 		.container{
 			display: flex;
@@ -82,8 +100,6 @@ if( !reloadFlag)
 			window.location.reload();
 		}
 	}, 10)
-	
-	
 }
 
 if( !localStorage.getItem("reload") && !reloadFlag ){
@@ -126,10 +142,10 @@ if( reloadFlag ){
 	*/
 		document.body.classList.add('transitions')
 		
+	}
+
 }
 
-	}
-}
 
 
 </script>
