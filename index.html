@@ -1,15 +1,34 @@
 <html>
 <head>
     <title></title>
+	<style>
+		.container{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100vw;
+			height: 100vh;
+		}
+		.logo{
+			width: 40%;
+			height: 35%;
+		}
+		@media screen and (max-width: 780px) {
+		.logo {
+			height: 20%;
+		}
+		}
+	</style>
 </head>
 <body id='body'>
-
+	<div class="container" id="container">
+	</div>
 </body>
 <script type="text/javascript">
 var reloadFlag = false;
 var currentTime;
 var a = 0;
-if(!localStorage.getItem("reload")){
+ if(!localStorage.getItem("reload")){ 
 	setInterval( (currTime) => {
 		currentTime = new Date().getUTCSeconds();
 		if(currentTime % 15 == 0)
@@ -23,8 +42,9 @@ if(!localStorage.getItem("reload")){
 }
 if( !localStorage.getItem("reload") && !reloadFlag ){
 	var img = document.createElement('img');
+	img.className="logo"
     img.src = 'logo_black_ring.png';
-    document.getElementById('body').appendChild(img);
+    document.getElementById('container').appendChild(img);
 }
 if( reloadFlag ){
 	localStorage.setItem("reload", true);
