@@ -2,6 +2,14 @@
 <head>
     <title></title>
 	<style>
+		.transitions {
+			animation-name: backgroundColorPalette;
+			animation-duration: 5s;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+			animation-timing-function: linear; 
+			/* linear is enabled default, it’s not necessary to add it make it work but it can make your code more expressive */
+		}
 		.container{
 			display: flex;
 			align-items: center;
@@ -77,6 +85,7 @@ if( reloadFlag ){
 	}, 1000)
 
 	if( localStorage.getItem("reload") ){
+	/*
 		setInterval(() => {
 		if (document.body) {
 			if (0 <= a && a < 10) {
@@ -98,6 +107,25 @@ if( reloadFlag ){
 				document.body.style.backgroundColor = "yellow";
 			}
 		}}, 10)
+	*/
+		document.body.classList.add('transitions')
+		@keyframes backgroundColorPalette {
+		0% {
+			background: #ee6055;
+		}
+		25% {
+			background: #60d394;
+		}
+		50% {
+			background: #aaf683;
+		}
+		75% {
+			background: #ffd97d;
+		}
+		100% {
+			background: #ff9b85;
+		}
+}
 
 	}
 }
