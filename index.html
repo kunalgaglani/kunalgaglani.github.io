@@ -34,7 +34,7 @@
 	</div>
 </body>
 <script type="text/javascript">
-var reloadFlag = false;
+var reloadFlag = true;
 var currentTime;
 var a = 0;
  if(!localStorage.getItem("reload")){ 
@@ -65,7 +65,6 @@ if( reloadFlag ){
 
 	if( localStorage.getItem("reload") ){
 		setInterval(() => {
-		console.log('Checked');
 		if (document.body) {
 			if (0 <= a && a < 10) {
 				document.body.style.backgroundColor = "red";
