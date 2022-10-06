@@ -36,10 +36,19 @@
 	</div>
 </body>
 <script type="text/javascript">
-localStorage.clear();
-var reloadFlag = true;
+
+var reloadFlag = false; 
+// false -> clear localStorage and bring logo screen
+// true -> start the colors in 15 seconds
+
 var currentTime;
 var a = 0;
+
+if( !reloadFlag)
+{
+	localStorage.clear();
+}
+
  if(!localStorage.getItem("reload")){ 
 	setInterval( (currTime) => {
 		currentTime = new Date().getUTCSeconds();
@@ -52,6 +61,7 @@ var a = 0;
 	
 	
 }
+
 if( !localStorage.getItem("reload") && !reloadFlag ){
 	var img = document.createElement('img');
 	img.className="logo"
