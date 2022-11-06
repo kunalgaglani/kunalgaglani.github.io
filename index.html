@@ -82,7 +82,7 @@
 var reloadFlag = false;
 //var i=0;
 
-
+console.log("outside",window.performance.getEntriesByType("navigation")[0].type);
 if(!reloadFlag){
     console.log("if")
 	var img = document.createElement('img');
@@ -90,7 +90,8 @@ if(!reloadFlag){
     img.src = 'logo_black_ring.png';
     document.getElementById('container').appendChild(img);
 }
-else if(!sessionStorage.getItem("reload")){
+
+else if(reloadFlag && window.performance.getEntriesByType("navigation")[0].type !== 'reload'){
     console.log("second else if",window.performance.getEntriesByType("navigation")[0].type)
     window.location.reload();
     console.log("second else if11",window.performance.getEntriesByType("navigation")[0].type)
