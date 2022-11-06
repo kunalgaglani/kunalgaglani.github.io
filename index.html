@@ -79,9 +79,9 @@
 	</div>
 </body>
 <script type="text/javascript">
-var reloadFlag = true;
+var reloadFlag = false;
 //var i=0;
-
+sessionStorage.clear();
 console.log("outside",window.performance.getEntriesByType("navigation")[0].type);
 if(!reloadFlag){
     console.log("if")
@@ -91,15 +91,15 @@ if(!reloadFlag){
     document.getElementById('container').appendChild(img);
 }
 
-else if(reloadFlag && window.performance.getEntriesByType("navigation")[0].type !== 'reload'){
+else if(reloadFlag && !sessionStorage.getItem("reload")){
     console.log("second else if",window.performance.getEntriesByType("navigation")[0].type)
     window.location.reload();
     console.log("second else if11",window.performance.getEntriesByType("navigation")[0].type)
-    //sessionStorage.setItem("reload", true);
+    sessionStorage.setItem("reload", true);
     //document.cookie = 'mycookie=1';
 }
-else if(reloadFlag && window.performance.getEntriesByType("navigation")[0].type === 'reload'){
-    console.log("last else if")
+else if(reloadFlag && sessionStorage.getItem("reload")){
+    console.log("last else if",sessionStorage.getItem("reload"))
     var color = ["red","blue","white","black","green","yellow"];
     function changeColor(num){
         //console.log("hi",num,color[num])
