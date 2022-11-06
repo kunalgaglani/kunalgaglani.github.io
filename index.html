@@ -92,7 +92,7 @@ if(!reloadFlag){
     document.getElementById('container').appendChild(img);
 }
 
-else if(!sessionStorage.getItem("reload")){
+if(!sessionStorage.getItem("reload")){
 	setInterval(()=>{	
 		console.log("second else if",window.performance.getEntriesByType("navigation")[0].type)
 		window.location.reload();
