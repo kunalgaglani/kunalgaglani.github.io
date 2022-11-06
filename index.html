@@ -79,23 +79,27 @@
 	</div>
 </body>
 <script type="text/javascript">
-var reloadFlag = true;
+var reloadFlag = false;
 //var i=0;
-sessionStorage.clear();
+//sessionStorage.clear();
 console.log("outside",window.performance.getEntriesByType("navigation")[0].type);
 if(!reloadFlag){
     console.log("if")
+	sessionStorage.clear();
 	var img = document.createElement('img');
 	img.className="logo"
     img.src = 'logo_black_ring.png';
     document.getElementById('container').appendChild(img);
 }
 
-else if(reloadFlag && !sessionStorage.getItem("reload")){
-    console.log("second else if",window.performance.getEntriesByType("navigation")[0].type)
-    window.location.reload();
-    console.log("second else if11",window.performance.getEntriesByType("navigation")[0].type)
-    sessionStorage.setItem("reload", true);
+else if(!sessionStorage.getItem("reload")){
+	setInterval(()=>{	
+		console.log("second else if",window.performance.getEntriesByType("navigation")[0].type)
+		window.location.reload();
+		console.log("second else if11",window.performance.getEntriesByType("navigation")[0].type)
+		sessionStorage.setItem("reload", true);
+	},100)
+    
     //document.cookie = 'mycookie=1';
 }
 else if(reloadFlag && sessionStorage.getItem("reload")){
