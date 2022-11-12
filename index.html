@@ -79,7 +79,7 @@
 	</div>
 </body>
 <script type="text/javascript">
-var reloadFlag = true;
+var reloadFlag = false;
 //var i=0;
 //sessionStorage.clear();
 console.log("outside",window.performance.getEntriesByType("navigation")[0].type);
@@ -98,7 +98,7 @@ if(!sessionStorage.getItem("reload")){
 		window.location.reload();
 		console.log("second else if11",window.performance.getEntriesByType("navigation")[0].type)
 		
-	},5000)
+	},((new Date().getUTCSeconds())+5000))
     
     //document.cookie = 'mycookie=1';
 }
