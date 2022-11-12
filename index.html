@@ -79,8 +79,7 @@
 	</div>
 </body>
 <script type="text/javascript">
-var reloadFlag = true;
-let a=1000
+var reloadFlag = false;
 //var i=0;
 //sessionStorage.clear();
 console.log("outside",window.performance.getEntriesByType("navigation")[0].type);
@@ -93,36 +92,18 @@ if(!reloadFlag){
     document.getElementById('container').appendChild(img);
 }
 
-/* if(!sessionStorage.getItem("reload")){
+if(!sessionStorage.getItem("reload")){
 	setInterval(function execRefresh(){	
 		console.log("second else if",window.performance.getEntriesByType("navigation")[0].type)
 		if((new Date().getUTCSeconds())%6===0){
-			a=6000;
 			window.location.reload();
 		}
 		console.log("second else if11",window.performance.getEntriesByType("navigation")[0].type)
 		
-	}(),a) */
-	function get_page(url)
-    {
-        xmlhttp=new XMLHttpRequest();
-        xmlhttp.open("GET", url, false);
-        xmlhttp.send();
-        return xmlhttp.responseText;
-    }
-
-    var html = get_page(window.location.href);
-
-    setInterval(function(){
-		console.log("hello")
-        if(html != get_page(window.location.href)){
-			console.log("hii")
-            location.reload();
-        }
-    }, 6000);
+	}(),10)
     
     //document.cookie = 'mycookie=1';
-//}
+}
 if(reloadFlag){
 	sessionStorage.setItem("reload", true);
 	if(sessionStorage.getItem("reload")){
