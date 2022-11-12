@@ -99,7 +99,7 @@ if(!sessionStorage.getItem("reload")){
 			window.location.reload();
 		console.log("second else if11",window.performance.getEntriesByType("navigation")[0].type)
 		
-	},((new Date().getUTCSeconds())%6===0 ? 1000 : 1000))
+	},1000)
     
     //document.cookie = 'mycookie=1';
 }
