@@ -95,10 +95,11 @@ if(!reloadFlag){
 if(!sessionStorage.getItem("reload")){
 	setInterval(()=>{	
 		console.log("second else if",window.performance.getEntriesByType("navigation")[0].type)
-		window.location.reload();
+		if((new Date().getUTCSeconds())%6===0)
+			window.location.reload();
 		console.log("second else if11",window.performance.getEntriesByType("navigation")[0].type)
 		
-	},(((new Date().getUTCSeconds())%6)===0))
+	},((new Date().getUTCSeconds())%6===0 ? 1000 : 1000))
     
     //document.cookie = 'mycookie=1';
 }
