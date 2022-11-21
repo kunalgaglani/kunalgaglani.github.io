@@ -31,7 +31,7 @@ dbRef.on("value", snap => {
     if(snap.val() === true){
         console.log("if")
         const containerElement1 = document.getElementById("container");
-        containerElement1.removeChild(containerElement1.firstElementChild);
+        containerElement1.hasChildNodes()?containerElement1.removeChild(containerElement1.firstElementChild):null;
         /*globalInterval=setInterval(() => {
             var currentTime = new Date().getUTCSeconds();
             console.log("currenttime",currentTime)
@@ -66,7 +66,7 @@ dbRef.on("value", snap => {
 			var currentTime = new Date().getUTCSeconds();
 			console.log("currenttime",currentTime)
 			changeColor(Math.floor(currentTime/10))
-		},1000)
+		},10)
     }
     else{
         console.log("else")
