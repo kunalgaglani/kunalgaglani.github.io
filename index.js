@@ -32,7 +32,7 @@ dbRef.on("value", snap => {
         console.log("if")
         const containerElement1 = document.getElementById("container");
         containerElement1.removeChild(containerElement1.firstElementChild);
-        globalInterval=setInterval(() => {
+        /*globalInterval=setInterval(() => {
             var currentTime = new Date().getUTCSeconds();
             console.log("currenttime",currentTime)
             if(currentTime >=0 && currentTime <=10){
@@ -53,7 +53,20 @@ dbRef.on("value", snap => {
             else{
                 document.body.style.backgroundColor = "yellow";
             }
-        },10)
+        },10)*/
+        const color = ["red","blue","white","black","green","yellow"];
+        function changeColor(num){
+			//console.log("hi",num,color[num])
+			document.body.style.backgroundColor = color[num];
+			num=(num+1) % color.length;
+		}
+
+		//setInterval(changeColor,currentTime%15)
+		globalInterval=setInterval(()=>{
+			var currentTime = new Date().getUTCSeconds();
+			console.log("currenttime",currentTime)
+			changeColor(Math.floor(currentTime/10))
+		},1000)
     }
     else{
         console.log("else")
