@@ -36,7 +36,7 @@ firebase.initializeApp(firebaseConfig)
       var containerElement = document.getElementsByClassName("container")
       console.log("containerEements",containerElement,containerElement[0].hasChildNodes())
       if(containerElement[0].hasChildNodes()){
-        containerElement[0].removeChild()
+        containerElement[0].removeChild(containerElement1.firstElementChild)
       }
         let element=document.getElementById('body')
         element.classList.add('transitions');
@@ -62,7 +62,7 @@ firebase.initializeApp(firebaseConfig)
       var containerElement = document.getElementsByClassName("container")
       console.log("containerEements",containerElement,containerElement[0].hasChildNodes())
       if(containerElement[0].hasChildNodes()){
-        containerElement[0].removeChild()
+        containerElement[0].removeChild(containerElement1.firstElementChild)
       }
         console.log("else",snap.val())
         setInterval(()=>{
