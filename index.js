@@ -19,7 +19,7 @@ firebase.initializeApp(firebaseConfig)
     console.log("snap",snap.val())
     if(snap.val()===0){
       document.body.className='';
-      document.body.style.backgroundColor="white";
+      document.getElementById('body').style.background="white";
       var containerElement = document.getElementsByClassName("container")
         console.log("containerEements",containerElement,containerElement[0].hasChildNodes())
         if(!containerElement[0].hasChildNodes()){
