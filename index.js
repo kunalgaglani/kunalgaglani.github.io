@@ -18,11 +18,17 @@ firebase.initializeApp(firebaseConfig)
 
     console.log("snap",snap.val())
     if(snap.val()===0){
-      document.body.style.backgroundColor="white";
-      var img = document.createElement('img');
-      img.className="logo"
-      img.src = 'logo_black_ring.png';
-      document.getElementById('container').appendChild(img);
+      document.body.className='';
+      var containerElement = document.getElementsByClassName("container")
+        console.log("containerEements",containerElement,containerElement[0].hasChildNodes())
+        if(!containerElement[0].hasChildNodes()){
+            console.log("child")
+            document.body.style.backgroundColor="white";
+            var img = document.createElement('img');
+            img.className="logo"
+            img.src = 'logo_black_ring.png';
+            document.getElementById('container').appendChild(img);
+        }
     }
     else if(snap.val() === 1){
         console.log("if",1)
