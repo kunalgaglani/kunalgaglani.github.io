@@ -33,11 +33,8 @@ firebase.initializeApp(firebaseConfig)
     else if(snap.val() === 1){
         console.log("if",1)
         document.body.className='';
-      var containerElement = document.getElementsByClassName("container")
-      console.log("containerEements",containerElement,containerElement[0].hasChildNodes())
-      if(containerElement[0].hasChildNodes()){
-        containerElement[0].removeChild(containerElement.firstElementChild)
-      }
+        const containerElement1 = document.getElementById("container");
+        containerElement1.hasChildNodes()?containerElement1.removeChild(containerElement1.firstElementChild):null;
         let element=document.getElementById('body')
         element.classList.add('transitions');
         /*const containerElement1 = document.getElementById("container");
@@ -59,11 +56,8 @@ firebase.initializeApp(firebaseConfig)
     }
     else if(snap.val() === 2){
       document.body.className='';
-      var containerElement = document.getElementsByClassName("container")
-      console.log("containerEements",containerElement,containerElement[0].hasChildNodes())
-      if(containerElement[0].hasChildNodes()){
-        containerElement[0].removeChild(containerElement.firstElementChild)
-      }
+      const containerElement1 = document.getElementById("container");
+        containerElement1.hasChildNodes()?containerElement1.removeChild(containerElement1.firstElementChild):null;
         console.log("else",snap.val())
         setInterval(()=>{
           const color=ranColor();
