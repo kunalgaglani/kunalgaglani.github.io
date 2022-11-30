@@ -17,7 +17,14 @@ firebase.initializeApp(firebaseConfig)
  firebase.database().ref('flagValue').on('value',(snap)=>{
 
     console.log("snap",snap.val())
-    if(snap.val() === 0){
+    if(snap.val()===0){
+      document.body.style.backgroundColor="white";
+      var img = document.createElement('img');
+      img.className="logo"
+      img.src = 'logo_black_ring.png';
+      document.getElementById('container').appendChild(img);
+    }
+    else if(snap.val() === 0){
         console.log("if")
         let element=document.getElementById('body')
         element.classList.add('transitions');
