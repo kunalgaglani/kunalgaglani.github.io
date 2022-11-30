@@ -32,6 +32,12 @@ firebase.initializeApp(firebaseConfig)
     }
     else if(snap.val() === 1){
         console.log("if",1)
+        document.body.className='';
+      var containerElement = document.getElementsByClassName("container")
+      console.log("containerEements",containerElement,containerElement[0].hasChildNodes())
+      if(containerElement[0].hasChildNodes()){
+        containerElement[0].removeChild()
+      }
         let element=document.getElementById('body')
         element.classList.add('transitions');
         /*const containerElement1 = document.getElementById("container");
@@ -51,8 +57,22 @@ firebase.initializeApp(firebaseConfig)
 			changeColor(Math.floor(currentTime/10))
 		},1)*/
     }
-    else{
+    else if(snap.val() === 2){
+      document.body.className='';
+      var containerElement = document.getElementsByClassName("container")
+      console.log("containerEements",containerElement,containerElement[0].hasChildNodes())
+      if(containerElement[0].hasChildNodes()){
+        containerElement[0].removeChild()
+      }
         console.log("else",snap.val())
+        setInterval(()=>{
+          const color=ranColor();
+          console.log("color",color)
+          document.getElementById('body').style.background=color;
+        },150)
+        const ranColor = () =>{
+          return "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
+        }
         /*globalInterval?clearInterval(globalInterval):null;
         var containerElement = document.getElementsByClassName("container")
         console.log("containerEements",containerElement,containerElement[0].hasChildNodes())
