@@ -24,8 +24,8 @@ firebase.initializeApp(firebaseConfig)
       img.src = 'logo_black_ring.png';
       document.getElementById('container').appendChild(img);
     }
-    else if(snap.val() === 0){
-        console.log("if")
+    else if(snap.val() === 1){
+        console.log("if",1)
         let element=document.getElementById('body')
         element.classList.add('transitions');
         /*const containerElement1 = document.getElementById("container");
