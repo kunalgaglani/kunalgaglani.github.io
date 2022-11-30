@@ -19,11 +19,12 @@ firebase.initializeApp(firebaseConfig)
     console.log("snap",snap.val())
     if(snap.val()===0){
       document.body.className='';
+      document.body.style.backgroundColor="white";
       var containerElement = document.getElementsByClassName("container")
         console.log("containerEements",containerElement,containerElement[0].hasChildNodes())
         if(!containerElement[0].hasChildNodes()){
             console.log("child")
-            document.body.style.backgroundColor="white";
+            //document.body.style.backgroundColor="white";
             var img = document.createElement('img');
             img.className="logo"
             img.src = 'logo_black_ring.png';
