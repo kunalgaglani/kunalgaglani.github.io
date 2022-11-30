@@ -14,30 +14,33 @@ firebase.initializeApp(firebaseConfig)
 
  let globalInterval;
 
- firebase.database().ref('StartFlag').on('value',(snap)=>{
+ firebase.database().ref('flagValue').on('value',(snap)=>{
 
     console.log("snap",snap.val())
-    if(snap.val() === true){
+    if(snap.val() === 0){
         console.log("if")
-        const containerElement1 = document.getElementById("container");
+        let element=document.getElementById('body')
+        element.classList.add('transitions');
+        /*const containerElement1 = document.getElementById("container");
         containerElement1.hasChildNodes()?containerElement1.removeChild(containerElement1.firstElementChild):null;
         const color = ["red","blue","white","black","green","yellow"];
         function changeColor(num){
 			//console.log("hi",num,color[num])
 			document.body.style.backgroundColor = color[num];
-			num=(num+1) % color.length;
-		}
+			num=(num+1) % color.length;*/
+
+		//}
 
 		//setInterval(changeColor,currentTime%15)
-		globalInterval=setInterval(()=>{
+		/*globalInterval=setInterval(()=>{
 			var currentTime = new Date().getUTCSeconds();
 			console.log("currenttime",currentTime)
 			changeColor(Math.floor(currentTime/10))
-		},1)
+		},1)*/
     }
     else{
-        console.log("else")
-        globalInterval?clearInterval(globalInterval):null;
+        console.log("else",snap.val())
+        /*globalInterval?clearInterval(globalInterval):null;
         var containerElement = document.getElementsByClassName("container")
         console.log("containerEements",containerElement,containerElement[0].hasChildNodes())
         if(!containerElement[0].hasChildNodes()){
@@ -47,6 +50,6 @@ firebase.initializeApp(firebaseConfig)
             img.className="logo"
             img.src = 'logo_black_ring.png';
             document.getElementById('container').appendChild(img);
-        }
+        }*/
     }
   });
