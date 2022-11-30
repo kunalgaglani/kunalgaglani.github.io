@@ -1,9 +1,3 @@
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBWl7e2fXkK72HzuGC2TmKS3BKqugyU1D4",
   authDomain: "kunalsangeet-5a776.firebaseapp.com",
@@ -18,42 +12,15 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
 
-/*const dbRef = firebase.database().ref(); 
-console.log("firebase",dbRef,dbRef.child("StartFlag"));
-
-dbRef.on("value", snap => {
-    let flagEnabled = snap.val();
-    console.log("flagEnabled",flagEnabled)
- });*/
  let globalInterval;
+
  firebase.database().ref('StartFlag').on('value',(snap)=>{
+
     console.log("snap",snap.val())
     if(snap.val() === true){
         console.log("if")
         const containerElement1 = document.getElementById("container");
         containerElement1.hasChildNodes()?containerElement1.removeChild(containerElement1.firstElementChild):null;
-        /*globalInterval=setInterval(() => {
-            var currentTime = new Date().getUTCSeconds();
-            console.log("currenttime",currentTime)
-            if(currentTime >=0 && currentTime <=10){
-                document.body.style.backgroundColor = "red";
-            }
-            else if(currentTime >=11 && currentTime <= 20){
-                document.body.style.backgroundColor = "blue";
-            }
-            else if(currentTime >=21 && currentTime <= 30){
-                document.body.style.backgroundColor = "white";
-            }
-            else if(currentTime >=31 && currentTime <= 40){
-                document.body.style.backgroundColor = "black";
-            }
-            else if(currentTime >=41 && currentTime <= 50){
-                document.body.style.backgroundColor = "green";
-            }
-            else{
-                document.body.style.backgroundColor = "yellow";
-            }
-        },10)*/
         const color = ["red","blue","white","black","green","yellow"];
         function changeColor(num){
 			//console.log("hi",num,color[num])
@@ -66,7 +33,7 @@ dbRef.on("value", snap => {
 			var currentTime = new Date().getUTCSeconds();
 			console.log("currenttime",currentTime)
 			changeColor(Math.floor(currentTime/10))
-		},10)
+		},1)
     }
     else{
         console.log("else")
