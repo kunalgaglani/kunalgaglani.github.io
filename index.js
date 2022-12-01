@@ -69,8 +69,6 @@ firebase.initializeApp(firebaseConfig)
       // Chand ne kaho- slow pastels
         console.log("if",1)
         document.body.className='';
-        const containerElement1 = document.getElementById("container");
-        containerElement1.hasChildNodes()?containerElement1.removeChild(containerElement1.firstElementChild):null;
         let element=document.getElementById('body')
         element.classList.add('transitions-pastels');
         /*const containerElement1 = document.getElementById("container");
