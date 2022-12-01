@@ -18,6 +18,7 @@ firebase.initializeApp(firebaseConfig)
 
     console.log("snap",snap.val())
     if(snap.val()===0){
+      // Home page
       document.body.className='';
       document.getElementById('body').style.background="white";
       var containerElement = document.getElementsByClassName("container")
@@ -32,12 +33,13 @@ firebase.initializeApp(firebaseConfig)
         }
     }
     else if(snap.val() === 1){
+      // Chand ne kaho- slow pastels
         console.log("if",1)
         document.body.className='';
         const containerElement1 = document.getElementById("container");
         containerElement1.hasChildNodes()?containerElement1.removeChild(containerElement1.firstElementChild):null;
         let element=document.getElementById('body')
-        element.classList.add('transitions');
+        element.classList.add('transitions-pastels');
         /*const containerElement1 = document.getElementById("container");
         containerElement1.hasChildNodes()?containerElement1.removeChild(containerElement1.firstElementChild):null;
         const color = ["red","blue","white","black","green","yellow"];
@@ -54,11 +56,45 @@ firebase.initializeApp(firebaseConfig)
 			console.log("currenttime",currentTime)
 			changeColor(Math.floor(currentTime/10))
 		},1)*/
-    }
-    else if(snap.val() === 2){
+  }
+  else if(snap.val() === 2){
+    // Mere naam tu- slow neon
+      console.log("if",2)
       document.body.className='';
       const containerElement1 = document.getElementById("container");
-        containerElement1.hasChildNodes()?containerElement1.removeChild(containerElement1.firstElementChild):null;
+      containerElement1.hasChildNodes()?containerElement1.removeChild(containerElement1.firstElementChild):null;
+      let element=document.getElementById('body')
+      element.classList.add('transitions-neon');
+  }
+    else if(snap.val() === 3){
+      // Uff - slow disco
+      console.log("if",3)
+      document.body.className='';
+        console.log("else",snap.val())
+        setInterval(()=>{
+          const color=ranColor();
+          console.log("color",color)
+          document.getElementById('body').style.background=color;
+        },400)
+        const ranColor = () =>{
+          return "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
+        }
+        /*globalInterval?clearInterval(globalInterval):null;
+        var containerElement = document.getElementsByClassName("container")
+        console.log("containerEements",containerElement,containerElement[0].hasChildNodes())
+        if(!containerElement[0].hasChildNodes()){
+            console.log("child")
+            document.body.style.backgroundColor="white";
+            var img = document.createElement('img');
+            img.className="logo"
+            img.src = 'logo_black_ring.png';
+            document.getElementById('container').appendChild(img);
+        }*/
+    }
+    else if(snap.val() === 4){
+      // Baby you light up - fast disco
+      console.log("if",4)
+      document.body.className='';
         console.log("else",snap.val())
         setInterval(()=>{
           const color=ranColor();

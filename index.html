@@ -2,15 +2,15 @@
 <head>
     <title></title>
     <style>
-		.transitions {
-			animation-name: backgroundColorPalette;
+		.transitions-pastels {
+			animation-name: backgroundColorPalettePastels;
 			animation-duration: 10s;
 			animation-iteration-count: infinite;
 			animation-direction: alternate;
 			animation-timing-function: linear; 
 			/* linear is enabled default, it’s not necessary to add it make it work but it can make your code more expressive */
 		}
-		@keyframes backgroundColorPalette {
+		@keyframes backgroundColorPalettePastels {
 		0% {
 			background: #a7c7e7;
 		}
@@ -45,7 +45,52 @@
 			background: #a7c7e7;
 		}
 	}
-		.container{
+	
+	.transitions-neon {
+			animation-name: backgroundColorPaletteNeon;
+			animation-duration: 10s;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+			animation-timing-function: linear; 
+			/* linear is enabled default, it’s not necessary to add it make it work but it can make your code more expressive */
+		}
+		@keyframes backgroundColorPaletteNeon {
+		0% {
+			background: #f23807;
+		}
+		10% {
+			background: #ff7200;
+		}
+		20% {
+			background: #ffcd01;
+		}
+		30% {
+			background: #0835ee;
+		}
+		40% {
+			background: #0026a4;
+		}
+		50% {
+			background: #000000;
+		}
+		60% {
+			background: #0026a4;
+		}
+		70% {
+			background: #0835ee;
+		}
+		80% {
+			background: #ffcd01;
+		}
+		90% {
+			background: #ff7200;
+		}
+		100% {
+			background: #f23807;
+		}
+	}
+	
+	.container{
 			display: flex;
 			align-items: center;
 			justify-content: center;
