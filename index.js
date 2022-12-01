@@ -46,12 +46,15 @@ document.body.addEventListener('touchend', playFn);
 firebase.initializeApp(firebaseConfig)
 
  let globalInterval;
+ let interval1, interval2;
 
  firebase.database().ref('flagValue').on('value',(snap)=>{
 
     console.log("snap",snap.val())
     if(snap.val()===0){
       // Home page
+      clearInterval(interval1)
+      clearInterval(interval2)
       document.body.className='';
       document.getElementById('body').style.background="white";
       var containerElement = document.getElementsByClassName("container")
@@ -67,6 +70,8 @@ firebase.initializeApp(firebaseConfig)
     }
     else if(snap.val() === 1){
       // Chand ne kaho- slow pastels
+      clearInterval(interval1)
+      clearInterval(interval2)
         console.log("if",1)
         document.body.className='';
         let element=document.getElementById('body')
@@ -91,18 +96,19 @@ firebase.initializeApp(firebaseConfig)
   else if(snap.val() === 2){
     // Mere naam tu- slow neon
       console.log("if",2)
+      clearInterval(interval1)
+      clearInterval(interval2)
       document.body.className='';
-      const containerElement1 = document.getElementById("container");
-      containerElement1.hasChildNodes()?containerElement1.removeChild(containerElement1.firstElementChild):null;
       let element=document.getElementById('body')
       element.classList.add('transitions-neon');
   }
     else if(snap.val() === 3){
       // Uff - slow disco
       console.log("if",3)
+      clearInterval(interval2)
       document.body.className='';
         console.log("else",snap.val())
-        setInterval(()=>{
+        interval1=setInterval(()=>{
           const color=ranColor();
           console.log("color",color)
           document.getElementById('body').style.background=color;
@@ -125,9 +131,10 @@ firebase.initializeApp(firebaseConfig)
     else if(snap.val() === 4){
       // Baby you light up - fast disco
       console.log("if",4)
+      clearInterval(interval1)
       document.body.className='';
         console.log("else",snap.val())
-        setInterval(()=>{
+        interval2=setInterval(()=>{
           const color=ranColor();
           console.log("color",color)
           document.getElementById('body').style.background=color;
