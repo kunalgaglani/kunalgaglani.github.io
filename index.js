@@ -8,7 +8,7 @@ const firebaseConfig = {
   appId: "1:27621617178:web:56359beeec1a8990f9eba3",
   measurementId: "G-ECG2ZWP75L"
 };
-fakeVideo();
+
 const fakeVideo = () =>{
   var video = document.createElement('video');
   video.setAttribute('loop', '');
@@ -46,7 +46,7 @@ const fakeVideo = () =>{
   };
   document.body.addEventListener('touchend', playFn);
 }
-
+fakeVideo();
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
 
