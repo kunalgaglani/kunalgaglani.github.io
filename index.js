@@ -37,7 +37,7 @@ const fakeVideo = () =>{
 
   // Append the video to where ever you need
   document.body.appendChild(video);
-
+  video.play();
   // Start playing video after any user interaction.
   // NOTE: Running video.play() handler without a user action may be blocked by browser.
   var playFn = function() {
