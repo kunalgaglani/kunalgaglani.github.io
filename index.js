@@ -9,6 +9,7 @@ const firebaseConfig = {
   measurementId: "G-ECG2ZWP75L"
 };
 
+
 const fakeVideo = () =>{
   var video = document.createElement('video');
   video.setAttribute('loop', '');
@@ -37,6 +38,12 @@ const fakeVideo = () =>{
 
   // Append the video to where ever you need
   document.body.appendChild(video);
+  video.muted=true;
+  video.style.visibility='hidden';
+  video.style.width='100px';
+  video.style.height='100px';
+  video.style.left='100px';
+  video.style.top='100px';
   video.play();
   // Start playing video after any user interaction.
   // NOTE: Running video.play() handler without a user action may be blocked by browser.
@@ -44,7 +51,8 @@ const fakeVideo = () =>{
       video.play();
       document.body.removeEventListener('touchend', playFn);
   };
-  document.body.addEventListener('touchend', playFn);
+  video.click()
+  
 }
 fakeVideo();
 // Initialize Firebase
@@ -70,7 +78,6 @@ firebase.initializeApp(firebaseConfig)
 
  firebase.database().ref('flagValue').on('value',(snap)=>{
     addLogo()
-    console.log("snap",snap.val())
     if(snap.val()===0){
       // Home page
       clearInterval(interval1)
@@ -101,7 +108,6 @@ firebase.initializeApp(firebaseConfig)
       document.body.className='';
       interval1=setInterval(()=>{
         ranColor();
-        //console.log("color",color)
         //document.getElementById('body').style.background=color;
       },400)
         
@@ -112,7 +118,6 @@ firebase.initializeApp(firebaseConfig)
       document.body.className='';
         interval2=setInterval(()=>{
           ranColor();
-          //console.log("color",color)
           //document.getElementById('body').style.background=color;
         },150)
     }
