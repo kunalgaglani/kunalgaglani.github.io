@@ -54,23 +54,8 @@ const fakeVideo = () =>{
   video.click()
   
 }
-//fakeVideo();
-const temp=async()=>{
-  // Create a reference for the Wake Lock.
-  let wakeLock = null;
+fakeVideo();
 
-  // create an async function to request a wake lock
-  try {
-    wakeLock = await navigator.wakeLock.request();
-    wakeLock.addEventListener('release', () => {
-      console.log('Screen Wake Lock released:', wakeLock.released);
-    });
-    console.log('Screen Wake Lock released:', wakeLock.released);
-  } catch (err) {
-    console.error(`${err.name}, ${err.message}`);
-  }
-}
-temp()
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
 
